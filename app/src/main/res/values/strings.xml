@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">work</string>
+    <string name="disclaimer">Постеры предоставлены https://www.movieposters.com/</string>
+    <string name="btn_menu">Меню</string>
+    <string name="btn_fav">Избранное</string>
+    <string name="btn_watch_later">Посмотреть позже</string>
+    <string name="btn_selections">Подборки</string>
+    <string name="btn_setting">Настройки</string>
+    <string name="page_title">Search it</string>
+    <string name="menu_favorites_title">Избранное</string>
+    <string name="menu_watch_later_title">Посмотреть позже</string>
+    <string name="menu_selections_title">Подборки</string>
+    <string name="menu_settings_title">Настройки</string>
+</resources>
