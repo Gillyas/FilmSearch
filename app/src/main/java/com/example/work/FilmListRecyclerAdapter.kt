@@ -1,10 +1,11 @@
 package com.example.work
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.work.databinding.FilmItemBinding
+
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
@@ -41,7 +42,8 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     }
 
   //Метод для добавления объектов в наш список
-    fun addItems(list: List<Film>){
+  @SuppressLint("NotifyDataSetChanged")
+  fun addItems(list: List<Film>){
       //Сначала очищаем(если не реализовать DiffUtils)
         items.clear()
       //Добавляем

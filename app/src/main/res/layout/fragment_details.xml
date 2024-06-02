@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".DetailsActivity">
+    tools:context=".DetailsFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
@@ -50,6 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:backgroundTint="@color/colorPrimaryDark"
+        android:importantForAccessibility="no"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|right"
         app:srcCompat="@drawable/ic_baseline_share_24"
@@ -66,7 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            tools:text="@tools:sample/lorem/random" />
+            tools:text="@tools:sample/lorem/random"
+            tools:ignore="VisualLintLongText" />
 
     </androidx.core.widget.NestedScrollView>
 
