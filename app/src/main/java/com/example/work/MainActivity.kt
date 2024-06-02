@@ -1,63 +1,57 @@
 package com.example.work
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.work.R.drawable
 import com.example.work.databinding.ActivityMainBinding
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
-    private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private var backPressed = 0L
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(R.layout.activity_main)
-        val view = binding.root
-        setContentView(view)
-        val filmsDatabase = listOf(
-            Film("Росомаха", drawable.pic, ""),
-            Film("Человек-Паук", drawable.pic2, "Старый Новый Человек-Паук"),
-            Film("Обитель Зла", drawable.pic3, "Убиватель зомби"),
-            Film("Балерина", drawable.pic4, "Танцевать - это круто!"),
-            Film("Цвет Фиолетовый", drawable.pic5, "Фильм про самый лучший цвет"),
-            Film("Стальной Ноготь", drawable.pic6, "Конор В прошлом"),
-            Film("Лица, Места", drawable.pic7, "This should be a description"),
 
-            )
+        initNavigation()
+        //Зупускаем фрагмент при старте
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.fragment_placeholder, HomeFragment())
+            .addToBackStack(null)
+            .commit()
 
-        //находим наш RV
+    }
 
-        binding.mainRecycler.apply {
-            filmsAdapter = FilmListRecyclerAdapter (object : FilmListRecyclerAdapter.OnItemClickListener{
-                override fun click(film: Film){
-                val bundle = Bundle()
-                bundle.putParcelable("film", film)
-                val intent = Intent(this@MainActivity, DetailsActivity::class.java)
-                intent.putExtras(bundle)
-                startActivity(intent)
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount == 1){
+            if(backPressed + TIME_INTERVAL > System.currentTimeMillis()){
+                super.onBackPressed()
+                finish()
+            }else{
+                AlertDialog.Builder(this)
+                    .setTitle("Вы хотите выйти?")
+                    .setIcon(R.drawable.baseline_add_home_24)
+                    .setPositiveButton("Да") { _, _ ->
+                        finish()
+                    }
+                    .setNegativeButton("Нет") { _, _ ->
+
+                    }
+                    .setNeutralButton("Не знаю") { _, _ ->
+                        Toast.makeText(this, "Оставайся посидим", Toast.LENGTH_SHORT).show()
+                    }
+                    .show()
             }
-        })
-            adapter = filmsAdapter
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            val decorator = TopSpacingItemDecoration(8)
-            addItemDecoration(decorator)
+        } else {
+            super.onBackPressed()
         }
 
-        filmsAdapter.addItems(filmsDatabase)
+    }
 
-        binding.topAppBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.settings -> {
-                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
-                    true
-                }
-
-                else -> false
-            }
-        }
+    private fun initNavigation() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
@@ -80,9 +74,27 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    fun launchDetailsFragment(film: Film) {
+        //Создаем "посылку"
+        val bundle = Bundle()
+        //Кладем наш фильм в "посылку"
+        bundle.putParcelable("film", film)
+        //Кладем фрагмент с деталями в перменную
+        val fragment = DetailsFragment()
+        //Прикрепляем нашу "посылку" к фрагменту
+        fragment.arguments = bundle
 
+
+        //Запускаем фрагмент
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment)
+            .addToBackStack(null)
+            .commit()
 
     }
-
-
+    companion object {
+        const val  TIME_INTERVAL = 2000
+    }
+}
 

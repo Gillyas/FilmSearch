@@ -1,18 +1,15 @@
 package com.example.work
 
-import android.icu.text.CaseMap.Title
+
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.work.databinding.FilmItemBinding
 
-//В конструктор класс передается layout, который мы создали(film_item.xml)
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
-class FilmViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
+class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     //Привязываем View из layout к переменным
     private val title = itemView.findViewById<TextView>(R.id.title)
     private val poster = itemView.findViewById<ImageView>(R.id.poster)
