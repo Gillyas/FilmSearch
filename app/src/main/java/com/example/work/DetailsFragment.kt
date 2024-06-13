@@ -14,7 +14,6 @@ class DetailsFragment : Fragment() {
     private lateinit var film: Film
     private lateinit var binding: FragmentDetailsBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,7 +58,7 @@ class DetailsFragment : Fragment() {
 
     private fun setFilmsDetails() {
         //Получаем наш фильм из переданного бандла
-        val film = arguments?.get("film") as Film
+         film = arguments?.get("film") as Film
 
         //Устанавливаем заголовок
         binding.detailsToolbar.title = film.title
@@ -68,8 +67,8 @@ class DetailsFragment : Fragment() {
         //Устанавливаем описание
         binding.detailsDescription.text = film.description
         binding.detailsFabFavorites.setImageResource(
-            if (film.isInFavorites) R.drawable.baseline_favorite_24
-            else R.drawable.baseline_favorite_border_24
+            if (film.isInFavorites) R.drawable.baseline_favorite_border_24
+            else R.drawable.round_favorite
         )
     }
 
