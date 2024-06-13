@@ -26,11 +26,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount == 1){
-            if(backPressed + TIME_INTERVAL > System.currentTimeMillis()){
+        if (supportFragmentManager.backStackEntryCount == 1) {
+            if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {
                 super.onBackPressed()
                 finish()
-            }else{
+            } else {
                 AlertDialog.Builder(this)
                     .setTitle("Вы хотите выйти?")
                     .setIcon(R.drawable.baseline_add_home_24)
@@ -52,10 +52,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
+
+
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.favorites -> {
-                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager
+                        .beginTransaction()
+                        .replace(R.id.fragment_placeholder, FavoritesFragment())
+                        .addToBackStack(null)
+                        .commit()
                     true
                 }
 
@@ -72,8 +78,8 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
     }
+
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
         val bundle = Bundle()
@@ -93,8 +99,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
 
     }
+
     companion object {
-        const val  TIME_INTERVAL = 2000
+        const val TIME_INTERVAL = 2000
     }
 }
 
