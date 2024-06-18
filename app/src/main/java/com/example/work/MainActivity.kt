@@ -10,6 +10,7 @@ import com.example.work.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private var backPressed = 0L
     private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

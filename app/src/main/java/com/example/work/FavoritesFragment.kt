@@ -12,7 +12,7 @@ import com.example.work.databinding.FragmentFavoritesBinding
 class FavoritesFragment : Fragment() {
     private lateinit var binding: FragmentFavoritesBinding
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
-    private val favoritesList: List<Film> = emptyList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentFavoritesBinding.inflate(layoutInflater)
@@ -29,11 +29,12 @@ class FavoritesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Получаем список при транзакции фрагмента
+        val favoritesList: List<Film> = emptyList()
+
         binding.favoritesRecycler.apply {
                 filmsAdapter = FilmListRecyclerAdapter { film ->
-                    (requireActivity() as MainActivity).launchDetailsFragment(
-                        film
-                    )
+                    (requireActivity() as MainActivity).launchDetailsFragment(film)
                 }
             //Присваиваем адаптер
                 adapter = filmsAdapter
