@@ -9,7 +9,9 @@ import com.bumptech.glide.Glide
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
-class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)  {
+
     //Привязываем View из layout к переменным
     private val title = itemView.findViewById<TextView>(R.id.title)
     private val poster = itemView.findViewById<ImageView>(R.id.poster)
@@ -17,6 +19,7 @@ class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     //В этом методе кладем данные из Film в наши View
     fun bind(film: Film) {
+
         //Устанавливаем заголовок
         title.text = film.title
         //Устанавливаем постер
@@ -31,4 +34,5 @@ class FilmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //Устанавливаем описание
         description.text = film.description
     }
+
 }
