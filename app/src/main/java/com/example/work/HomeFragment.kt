@@ -1,25 +1,18 @@
 package com.example.work
 
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.transition.Scene
-import androidx.transition.Slide
-import androidx.transition.TransitionManager
-import androidx.transition.TransitionSet
 import com.example.work.databinding.FragmentHomeBinding
-import com.example.work.databinding.MergeHomeScreenContentBinding
 import java.util.Locale
 
 
 @Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
-    private lateinit var mergeBinding: MergeHomeScreenContentBinding
     private lateinit var binding: FragmentHomeBinding
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
 
@@ -67,30 +60,16 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
 
     ): View {
-        mergeBinding = MergeHomeScreenContentBinding.inflate(inflater,container, false)
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-    return mergeBinding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val scene = Scene( binding.homeFragmentRoot, mergeBinding.mergeHomeScreenContentFragment, )
-//Создаем анимацию выезда поля поиска сверху
-        val searchSlide = Slide(Gravity.TOP).addTarget(R.id.search_view)
-//Создаем анимацию выезда RV снизу
-        val recyclerSlide = Slide(Gravity.BOTTOM).addTarget(R.id.main_recycler)
-//Создаем экземпляр TransitionSet, который объединит все наши анимации
-        val customTransition = TransitionSet().apply {
-            //Устанавливаем время, за которое будет проходить анимация
-            duration = 500
-            //Добавляем сами анимации
-            addTransition(recyclerSlide)
-            addTransition(searchSlide)
-        }
-//Также запускаем через TransitionManager, но вторым параметром передаем нашу кастомную анимацию
-        TransitionManager.go(scene, customTransition)
-        mergeBinding.mainRecycler.apply {
+
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        binding.mainRecycler.apply {
             //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс,
             //оставим его пока пустым, он нам понадобится во второй части задания
             filmsAdapter =
@@ -100,11 +79,11 @@ class HomeFragment : Fragment() {
                     )
                 }
             // тут создвли UX при нажатие на все поле происходит "активация"
-            mergeBinding.searchView.setOnClickListener {
-                mergeBinding.searchView.isIconified = false
+            binding.searchView.setOnClickListener {
+                binding.searchView.isIconified = false
             }
             //Подключаем слушателя изменений введенного текста в поиска
-            mergeBinding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
                 androidx.appcompat.widget.SearchView.OnQueryTextListener {
                 //Этот метод отрабатывает при нажатии кнопки "поиск" на софт клавиатуре
                 override fun onQueryTextSubmit(query: String?): Boolean {

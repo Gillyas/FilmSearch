@@ -49,6 +49,13 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    sourceSets {
+        getByName("main") {
+            assets {
+                srcDirs("src\\main\\assets", "src\\main\\assets")
+            }
+        }
+    }
 
 
 }
@@ -57,6 +64,8 @@ dependencies {
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.11.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+    //SplachScreen
+    implementation ("com.airbnb.android:lottie:3.4.4")
     implementation (libs.material)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

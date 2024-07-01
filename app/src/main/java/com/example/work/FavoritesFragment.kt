@@ -16,6 +16,7 @@ class FavoritesFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentFavoritesBinding.inflate(layoutInflater)
+
     }
 
     override fun onCreateView(
@@ -44,6 +45,7 @@ class FavoritesFragment : Fragment() {
                 val decorator = TopSpacingItemDecoration(8)
                 addItemDecoration(decorator)
             }
+        AnimationHelper.performFragmentCircularRevealAnimation(binding.favoritesFragmentRoot, requireActivity(),4)
         //Кладем нашу БД в RV
         filmsAdapter.addItems(favoritesList)
             }

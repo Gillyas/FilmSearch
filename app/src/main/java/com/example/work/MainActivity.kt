@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.work.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION")
@@ -53,32 +54,46 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initNavigation() {
-
-
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
+                R.id.home -> {
+                    val tag = "home"
+                    val fragment = checkFragmentExistence(tag)
+                    //В первом параметре, если фрагмент не найден и метод вернул null, то с помощью
+                    //элвиса мы вызываем создание нвого фрагмента
+                    changeFragment( fragment?: HomeFragment(),   "home")
+                    true
+                }
                 R.id.favorites -> {
-                    supportFragmentManager
-                        .beginTransaction()
-                        .replace(R.id.fragment_placeholder, FavoritesFragment())
-                        .addToBackStack(null)
-                        .commit()
+                    val tag = "favorites"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: FavoritesFragment(), "favorites")
                     true
                 }
-
                 R.id.watch_later -> {
-                    Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
+                    val tag = "watch_later"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: WatchLaterFragment(),  "watch_later")
                     true
                 }
-
                 R.id.selections -> {
-                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    val tag = "selections"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: SelectionsFragment(), "selections")
                     true
                 }
-
-                else -> false
+                else ->  false
             }
         }
+    }
+    //Ищем фрагмент по тегу, если он есть то возвращаем его, если нет, то null
+    private fun checkFragmentExistence(tag: String): Fragment? = supportFragmentManager.findFragmentByTag(tag)
+    private fun changeFragment(fragment: Fragment, tag: String) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_placeholder, fragment, tag)
+            .addToBackStack(null)
+            .commit()
     }
 
     fun launchDetailsFragment(film: Film) {
