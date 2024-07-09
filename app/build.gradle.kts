@@ -37,7 +37,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
         compose = true
     }
@@ -61,14 +61,17 @@ android {
 }
 
 dependencies {
+    // Korutin sphscreen
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
+    implementation("androidx.core:core-splashscreen:1.0.0")
     //Glide
-    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
     //SplachScreen
-    implementation ("com.airbnb.android:lottie:3.4.4")
-    implementation (libs.material)
+    implementation("com.airbnb.android:lottie:6.4.1")
+    implementation(libs.material)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
