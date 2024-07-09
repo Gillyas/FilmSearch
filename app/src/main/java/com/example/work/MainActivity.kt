@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.airbnb.lottie.LottieAnimationView
 import com.example.work.databinding.ActivityMainBinding
 
 @Suppress("DEPRECATION")
@@ -17,15 +16,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val lottieAnimationView: LottieAnimationView = binding.lottieAnim
-        lottieAnimationView.playAnimation()
         initNavigation()
         //Зупускаем фрагмент при старте
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_placeholder, HomeFragment())
-            .addToBackStack(null)
-            .commit()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_placeholder, HomeFragment())
+                .addToBackStack(null)
+                .commit()
 
     }
 

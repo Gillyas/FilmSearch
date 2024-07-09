@@ -9,6 +9,18 @@
     android:elevation="1dp"
     app:cardCornerRadius="10dp">
 
+    <com.example.work.RatingDonutView
+        android:id="@+id/rating_donut"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:translationZ="11dp"
+        app:stroke="10"
+        app:progress="37"
+        android:layout_gravity="bottom|left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
