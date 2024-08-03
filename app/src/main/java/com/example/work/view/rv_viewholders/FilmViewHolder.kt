@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.work.R
 import com.example.work.domain.Film
-import com.example.work.RatingDonutView
+import com.example.work.view.customview.RatingDonutView
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
