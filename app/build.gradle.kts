@@ -62,8 +62,8 @@ android {
 
 dependencies {
     // Korutin sphscreen
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
-    implementation("androidx.core:core-splashscreen:1.0.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("androidx.core:core-splashscreen:1.0.1")
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.navigation.fragment.ktx)

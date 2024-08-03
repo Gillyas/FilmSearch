@@ -6,6 +6,6 @@
     android:id="@+id/selections_fragment_root"
     android:background="@drawable/background_selections"
     tools:visibility="visible"
-    tools:context="SelectionsFragment">
+    tools:context=".view.fragments.SelectionsFragment">
 
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.example.work
+package com.example.work.view.rv_adapters
 
 import android.content.res.Resources
 import android.graphics.Rect

@@ -157,4 +157,3 @@ class RatingDonutView @JvmOverloads constructor(context: Context, attributeSet: 
 
     private fun convertProgressToDegrees(progress: Int): Float = progress * 3.6f
 }
-

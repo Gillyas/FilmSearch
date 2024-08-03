@@ -1,4 +1,4 @@
-package com.example.work
+package com.example.work.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,56 +6,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.work.databinding.FragmentHomeBinding
+import com.example.work.domain.Film
+import com.example.work.utils.AnimationHelper
+import com.example.work.view.rv_adapters.FilmListRecyclerAdapter
+import com.example.work.view.rv_adapters.TopSpacingItemDecoration
+import com.example.work.view.MainActivity
+import com.example.work.viewmodel.HomeFragmentViewModel
 import java.util.Locale
 
 
-@Suppress("UNREACHABLE_CODE")
 class HomeFragment : Fragment() {
+    private val viewModel by lazy {
+        ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
+    }
     private lateinit var binding: FragmentHomeBinding
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
+    private var filmsDataBase = listOf<Film>()
+        //Используем backing field
+        set(value) {
+            //Если придет такое же значение, то мы выходим из метода
+            if (field == value) return
+            //Если пришло другое значение, то кладем его в переменную
+            field = value
+            //Обновляем RV адаптер
+            filmsAdapter.addItems(field)
+        }
 
-    private val filmsDataBase = listOf(
-        Film(
-            "The Shawshank Redemption",
-            R.drawable.pic,
-            "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", 7.4f
-        ),
-        Film(
-            "The Godfather",
-            R.drawable.pic2,
-            "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", 8.9f
-        ),
-        Film(
-            "The Dark Knight",
-            R.drawable.pic3,
-            "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",9.3f
-        ),
-        Film(
-            "Pulp Fiction",
-            R.drawable.pic4,
-            "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.", 9.9f
-        ),
-        Film(
-            "Inception",
-            R.drawable.pic5,
-            "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",5.9f
-        ),
-        Film(
-            "Hamilton",
-            R.drawable.pic6,
-            "The real life of one of America's foremost founding fathers and first Secretary of the Treasury, Alexander Hamilton. Captured live on Broadway from the Richard Rodgers Theater with the original Broadway cast.",8.0f
-        ),
-        Film(
-            "Gisaengchung",
-            R.drawable.pic7,
-            "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",9.9f
-        ),
-
-        )
-
-   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -63,8 +48,14 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        AnimationHelper.performFragmentCircularRevealAnimation(binding.homeFragmentRoot, requireActivity(), 1)
+        viewModel.filmsListLiveData.observe(viewLifecycleOwner, Observer<List<Film>> {
+            filmsDataBase = it
+        })
+        AnimationHelper.performFragmentCircularRevealAnimation(
+            binding.homeFragmentRoot,
+            requireActivity(),
+            1
+        )
         binding.mainRecycler.apply {
             //Инициализируем наш адаптер в конструктор передаем анонимно инициализированный интерфейс,
             //оставим его пока пустым, он нам понадобится во второй части задания
