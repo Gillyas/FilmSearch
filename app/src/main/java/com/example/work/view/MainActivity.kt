@@ -1,11 +1,18 @@
-package com.example.work
+package com.example.work.view
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.work.R
 import com.example.work.databinding.ActivityMainBinding
+import com.example.work.domain.Film
+import com.example.work.view.fragments.DetailsFragment
+import com.example.work.view.fragments.FavoritesFragment
+import com.example.work.view.fragments.HomeFragment
+import com.example.work.view.fragments.SelectionsFragment
+import com.example.work.view.fragments.WatchLaterFragment
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -26,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @Deprecated("This method has been deprecated in favor of using the\n      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      The OnBackPressedDispatcher controls how back button events are dispatched\n      to one or more {@link OnBackPressedCallback} objects.")
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount == 1) {
             if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {

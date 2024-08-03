@@ -1,4 +1,4 @@
-package com.example.work
+package com.example.work.view.rv_viewholders
 
 
 import android.view.View
@@ -6,6 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.work.R
+import com.example.work.domain.Film
+import com.example.work.view.customview.RatingDonutView
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)

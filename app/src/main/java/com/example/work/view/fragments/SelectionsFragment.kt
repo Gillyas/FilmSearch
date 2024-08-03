@@ -1,4 +1,4 @@
-package com.example.work
+package com.example.work.view.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.work.databinding.FragmentSelectionsBinding
+import com.example.work.utils.AnimationHelper
 
 class SelectionsFragment : Fragment() {
 private lateinit var b: FragmentSelectionsBinding
