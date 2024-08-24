@@ -35,6 +35,7 @@ android {
             }
         }
         compileOptions {
+
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
         }
@@ -44,6 +45,7 @@ android {
         buildFeatures {
             viewBinding = true
             compose = true
+            buildConfig = true
         }
         composeOptions {
             kotlinCompilerExtensionVersion = "1.5.1"
@@ -65,16 +67,20 @@ android {
     }
 
     dependencies {
-        // Korutin sphscreen
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-        implementation("androidx.core:core-splashscreen:1.0.1")
+        implementation ("androidx.paging:paging-runtime-ktx:3.1.0")
+
+
+        //Retrofit
+        implementation ("com.squareup.retrofit2:retrofit:2.11.0")
+        implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
+        implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
         //Glide
         implementation("com.github.bumptech.glide:glide:4.16.0")
         implementation(libs.androidx.navigation.fragment.ktx)
         implementation(libs.androidx.navigation.ui.ktx)
         annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-        //SplachScreen
-        implementation("com.airbnb.android:lottie:6.4.1")
+
         implementation(libs.material)
         implementation(libs.androidx.core.ktx)
         implementation(libs.androidx.appcompat)
