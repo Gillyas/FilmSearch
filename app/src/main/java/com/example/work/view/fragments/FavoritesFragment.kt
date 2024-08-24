@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package com.example.work.view.fragments
 
 import android.os.Bundle
@@ -6,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.work.view.rv_adapters.FilmListRecyclerAdapter
-import com.example.work.view.MainActivity
-import com.example.work.view.rv_adapters.TopSpacingItemDecoration
 import com.example.work.databinding.FragmentFavoritesBinding
 import com.example.work.domain.Film
 import com.example.work.utils.AnimationHelper
+import com.example.work.view.MainActivity
+import com.example.work.view.rv_adapters.FilmListRecyclerAdapter
+import com.example.work.view.rv_adapters.TopSpacingItemDecoration
 
 
 class FavoritesFragment : Fragment() {
