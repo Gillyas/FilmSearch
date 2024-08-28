@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
+    id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+    id("kotlin-kapt")
 }
 
 android {
@@ -44,7 +46,7 @@ android {
         }
         buildFeatures {
             viewBinding = true
-            compose = true
+
             buildConfig = true
         }
         composeOptions {
@@ -67,19 +69,22 @@ android {
     }
 
     dependencies {
-        implementation ("androidx.paging:paging-runtime-ktx:3.1.0")
-
-
+        kapt("groupId:artifactId:version")
+        implementation(libs.dagger.compiler.v2511)
+        implementation(libs.com.google.devtools.ksp.gradle.plugin)
+        implementation(libs.com.android.legacy.kapt.gradle.plugin)
+        ksp(libs.dagger.compiler.v2511)
+        implementation (libs.dagger)
         //Retrofit
-        implementation ("com.squareup.retrofit2:retrofit:2.11.0")
-        implementation ("com.squareup.retrofit2:converter-gson:2.11.0")
-        implementation ("com.squareup.okhttp3:logging-interceptor:4.12.0")
+        implementation (libs.retrofit)
+        implementation (libs.converter.gson)
+        implementation (libs.logging.interceptor)
 
         //Glide
-        implementation("com.github.bumptech.glide:glide:4.16.0")
+        implementation(libs.glide)
         implementation(libs.androidx.navigation.fragment.ktx)
         implementation(libs.androidx.navigation.ui.ktx)
-        annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+        annotationProcessor(libs.compiler)
 
         implementation(libs.material)
         implementation(libs.androidx.core.ktx)
@@ -101,5 +106,8 @@ android {
         androidTestImplementation(libs.androidx.ui.test.junit4)
         debugImplementation(libs.androidx.ui.tooling)
         debugImplementation(libs.androidx.ui.test.manifest)
+
+        implementation (libs.dagger.android)
+        implementation (libs.dagger.android.support)
     }
 

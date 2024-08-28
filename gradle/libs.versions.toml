@@ -1,26 +1,54 @@
 [versions]
 agp = "8.5.2"
-kotlin = "1.9.0"
+converterGson = "2.11.0"
+dagger = "2.52"
+daggerCompiler = "2.52"
+daggerCompilerVersion = "2.52"
+glide = "4.16.0"
+googleDaggerCompiler = "2.52"
+koinAndroid = "2.0.1"
+koinAndroidxViewmodel = "3.2.0"
+kotlin = "2.0.20"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
+loggingInterceptor = "4.12.0"
 material = "1.12.0"
 activity = "1.9.1"
 constraintlayout = "2.1.4"
 lifecycleRuntimeKtx = "2.8.4"
 activityCompose = "1.9.1"
-composeBom = "2024.06.00"
+composeBom = "2024.08.00"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
+pagingRuntimeKtx = "3.3.2"
+comGoogleDevtoolsKspGradlePlugin = "2.0.20-1.0.24"
+comAndroidLegacyKaptGradlePlugin = "8.7.0-alpha07"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-android = { module = "com.google.dagger:dagger-android", version.ref = "daggerCompiler" }
+dagger-android-processor = { module = "com.google.dagger:dagger-android-processor", version.ref = "daggerCompiler" }
+dagger-android-support = { module = "com.google.dagger:dagger-android-support", version.ref = "daggerCompiler" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+dagger-compiler-v220 = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompiler" }
+dagger-compiler-v2511 = { module = "com.google.dagger:dagger-compiler", version.ref = "googleDaggerCompiler" }
+dagger-compiler-v252 = { module = "com.google.dagger:dagger-compiler", version.ref = "daggerCompilerVersion" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+koin-android = { module = "org.koin:koin-android", version.ref = "koinAndroid" }
+koin-androidx-scope = { module = "org.koin:koin-androidx-scope", version.ref = "koinAndroidxViewmodel" }
+koin-androidx-viewmodel = { module = "org.koin:koin-androidx-viewmodel", version.ref = "koinAndroidxViewmodel" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -36,6 +64,9 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterGson" }
+com-google-devtools-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "comGoogleDevtoolsKspGradlePlugin" }
+com-android-legacy-kapt-gradle-plugin = { group = "com.android.legacy-kapt", name = "com.android.legacy-kapt.gradle.plugin", version.ref = "comAndroidLegacyKaptGradlePlugin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
