@@ -69,11 +69,10 @@ android {
     }
 
     dependencies {
-        kapt("groupId:artifactId:version")
+        kapt("com.google.dagger:dagger-compiler:2.52")
         implementation(libs.dagger.compiler.v2511)
-        implementation(libs.com.google.devtools.ksp.gradle.plugin)
-        implementation(libs.com.android.legacy.kapt.gradle.plugin)
-        ksp(libs.dagger.compiler.v2511)
+
+
         implementation (libs.dagger)
         //Retrofit
         implementation (libs.retrofit)
@@ -108,6 +107,5 @@ android {
         debugImplementation(libs.androidx.ui.test.manifest)
 
         implementation (libs.dagger.android)
-        implementation (libs.dagger.android.support)
     }
 

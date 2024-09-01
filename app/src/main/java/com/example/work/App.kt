@@ -15,7 +15,7 @@ class App : Application() {
         super.onCreate()
         instance = this
         //Создаем компонент
-        dagger = daggerAppcomponent.create()
+        dagger = DaggerAppComponent.create()
     }
 
     companion object {
