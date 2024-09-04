@@ -1,10 +1,12 @@
 package com.example.work.view
 
+
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+
 import com.example.work.R
 import com.example.work.databinding.ActivityMainBinding
 import com.example.work.domain.Film
@@ -12,16 +14,18 @@ import com.example.work.view.fragments.DetailsFragment
 import com.example.work.view.fragments.FavoritesFragment
 import com.example.work.view.fragments.HomeFragment
 import com.example.work.view.fragments.SelectionsFragment
+import com.example.work.view.fragments.SettingsFragment
 import com.example.work.view.fragments.WatchLaterFragment
 
 @Suppress("DEPRECATION")
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     private var backPressed = 0L
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         initNavigation()
         //Зупускаем фрагмент при старте
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragment_placeholder, HomeFragment())
                 .addToBackStack(null)
                 .commit()
+
 
     }
 
@@ -89,6 +94,12 @@ class MainActivity : AppCompatActivity() {
                     changeFragment( fragment?: SelectionsFragment(), "selections")
                     true
                 }
+                R.id.settings -> {
+                    val tag = "settings"
+                    val fragment = checkFragmentExistence(tag)
+                    changeFragment( fragment?: SettingsFragment(), tag)
+                    true
+                }
                 else ->  false
             }
         }
@@ -126,5 +137,8 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val TIME_INTERVAL = 2000
     }
+
+
+
 }
 

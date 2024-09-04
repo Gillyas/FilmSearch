@@ -13,8 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Work">
         <activity
-            android:name=".view.fragments.DetailsFragment"
+            android:name=".view.SplashScreen"
             android:exported="true" />
+
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
