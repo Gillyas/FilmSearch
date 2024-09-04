@@ -1,7 +1,9 @@
 package com.example.work.data.e.di.modules
 
 import com.example.work.viewmodel.HomeFragmentViewModel
+import com.example.work.viewmodel.SettingsFragmentViewModel
 import dagger.Component
+import okhttp3.internal.http2.Settings
 import javax.inject.Singleton
 
 @Singleton
@@ -14,6 +16,8 @@ import javax.inject.Singleton
     ]
 )
 interface AppComponent {
-    //метод для того, чтобы появилась внедрять зависимости в HomeFragmentViewModel
+    //метод для того, чтобы появилась возможность внедрять зависимости в HomeFragmentViewModel
     fun inject(homeFragmentViewModel: HomeFragmentViewModel)
+    //метод для того, чтобы появилась возможность внедрять зависимости в SettingsFragmentViewModel
+    fun inject(settingsFragmentViewModel: SettingsFragmentViewModel)
 }

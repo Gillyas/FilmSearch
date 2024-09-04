@@ -15,7 +15,7 @@ class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     //Здесь у нас хранится список элементов для RV
-    private val items = mutableListOf<Film>()
+    internal val items = mutableListOf<Film>()
 
     //В этом методе мы привязываем наш ViewHolder и передаем туда "надутую" верстку нашего фильма
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

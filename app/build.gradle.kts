@@ -69,9 +69,12 @@ android {
     }
 
     dependencies {
+        implementation(libs.androidx.swiperefreshlayout)
         kapt("com.google.dagger:dagger-compiler:2.52")
         implementation(libs.dagger.compiler.v2511)
 
+        // lottie
+        implementation (libs.lottie)
 
         implementation (libs.dagger)
         //Retrofit
