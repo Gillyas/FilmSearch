@@ -5,6 +5,8 @@ import android.app.Application
 
 import com.example.work.data.e.di.modules.AppComponent
 import com.example.work.data.e.di.modules.DaggerAppComponent
+
+
 import com.example.work.data.e.di.modules.DatabaseModule
 import com.example.work.data.e.di.modules.DomainModule
 import com.example.work.data.e.di.modules.RemoteModule
