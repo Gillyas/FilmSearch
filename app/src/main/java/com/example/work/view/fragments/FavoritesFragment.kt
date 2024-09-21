@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.work.databinding.FragmentFavoritesBinding
-import com.example.work.domain.Film
+import com.example.work.data.e.Enity.Film
 import com.example.work.utils.AnimationHelper
 import com.example.work.view.MainActivity
 import com.example.work.view.rv_adapters.FilmListRecyclerAdapter

@@ -69,6 +69,11 @@ android {
     }
 
     dependencies {
+        implementation ("androidx.room:room-runtime")
+        implementation(libs.androidx.room.common.jvm)
+        kapt (libs.androidx.room.compiler)
+
+
         implementation(libs.androidx.swiperefreshlayout)
         kapt("com.google.dagger:dagger-compiler:2.52")
         implementation(libs.dagger.compiler.v2511)

@@ -2,14 +2,13 @@ package com.example.work
 
 
 import android.app.Application
-import android.view.LayoutInflater
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
+
 import com.example.work.data.e.di.modules.AppComponent
 import com.example.work.data.e.di.modules.DaggerAppComponent
 import com.example.work.data.e.di.modules.DatabaseModule
 import com.example.work.data.e.di.modules.DomainModule
 import com.example.work.data.e.di.modules.RemoteModule
-import com.example.work.databinding.LottieAnimBinding
+
 
 
 class App : Application() {

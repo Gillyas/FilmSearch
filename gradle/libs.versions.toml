@@ -28,10 +28,14 @@ pagingRuntimeKtx = "3.3.2"
 comGoogleDevtoolsKspGradlePlugin = "2.0.20-1.0.24"
 comAndroidLegacyKaptGradlePlugin = "8.7.0-alpha07"
 swiperefreshlayout = "1.1.0"
+roomCommon = "2.6.1"
+roomCompiler = "2.6.1"
+roomCommonJvm = "2.7.0-alpha08"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
+androidx-room-runtime = { module = "androidx.room:room-runtime" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
@@ -71,6 +75,10 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converte
 com-google-devtools-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "comGoogleDevtoolsKspGradlePlugin" }
 com-android-legacy-kapt-gradle-plugin = { group = "com.android.legacy-kapt", name = "com.android.legacy-kapt.gradle.plugin", version.ref = "comAndroidLegacyKaptGradlePlugin" }
 androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+room-runtime = { module = "androidx.room:room-runtime" }
+androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

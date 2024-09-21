@@ -2,6 +2,7 @@ package com.example.work.domain
 
 
 import com.example.work.data.e.API
+import com.example.work.data.e.Enity.Film
 import com.example.work.data.e.Enity.TmdbResultsDto
 import com.example.work.data.e.MainRepository
 import com.example.work.data.e.TmdbApi
@@ -20,8 +21,8 @@ class Interactor (private val repo: MainRepository, private val retrofitService:
                 //При успехе мы вызываем метод передаем onSuccess и в этот коллбэк список фильмов
                 val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                 //Кладем фильмы в бд
-                list.forEach {
-                    repo.putoDB(film = it)
+                list.forEach { _ ->
+                    repo.putToDb(list)
                 }
                 callback.onSuccess(list)
             }
@@ -39,5 +40,5 @@ class Interactor (private val repo: MainRepository, private val retrofitService:
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
 
-    fun getFilmsFromDB(): List<Film> = repo.getALLFromDB()
+    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
 }
