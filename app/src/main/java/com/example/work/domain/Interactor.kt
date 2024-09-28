@@ -1,6 +1,7 @@
 package com.example.work.domain
 
 
+import androidx.lifecycle.LiveData
 import com.example.work.data.e.API
 import com.example.work.data.e.Enity.Film
 import com.example.work.data.e.Enity.TmdbResultsDto
@@ -40,5 +41,5 @@ class Interactor (private val repo: MainRepository, private val retrofitService:
     //Метод для получения настроек
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
 
-    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
+    fun getFilmsFromDB(): LiveData<List<Film>> = repo.getAllFromDB()
 }
