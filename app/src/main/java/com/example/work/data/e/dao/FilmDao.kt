@@ -1,5 +1,6 @@
 package com.example.work.data.e.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -10,8 +11,9 @@ import com.example.work.data.e.Enity.Film
 @Dao
 interface FilmDao {
     //Запрос на всю таблицу
+    //Теперь мы получаем не список фильмов, а объект LiveData
     @Query("SELECT * FROM cached_films")
-    fun gerCachedFilms(): List<Film>
+    fun gerCachedFilms(): LiveData<List<Film>>
 
     //Кладём списком в БД, в случае конфликта перезаписываем
     @Insert(onConflict = OnConflictStrategy.REPLACE)

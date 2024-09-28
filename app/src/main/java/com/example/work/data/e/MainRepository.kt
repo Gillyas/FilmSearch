@@ -1,6 +1,7 @@
 package com.example.work.data.e
 
 
+import androidx.lifecycle.LiveData
 import com.example.work.data.e.dp.DatabaseHelper
 import com.example.work.data.e.Enity.Film
 import com.example.work.data.e.dao.FilmDao
@@ -14,8 +15,7 @@ class MainRepository(private val filmDao: FilmDao) {
             filmDao.insertAll(films)
         }
     }
+//ViewModel теперь этот метод будет вызываться один раз, чтобы взять ссылку на этот объект
+    fun getAllFromDB(): LiveData<List<Film>> = filmDao.gerCachedFilms()
 
-    fun getAllFromDB(): List<Film> {
-        return filmDao.gerCachedFilms()
-    }
 }
