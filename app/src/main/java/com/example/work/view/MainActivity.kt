@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 
 import com.example.work.R
 import com.example.work.databinding.ActivityMainBinding
-import com.example.work.domain.Film
+import com.example.work.data.e.Enity.Film
 import com.example.work.view.fragments.DetailsFragment
 import com.example.work.view.fragments.FavoritesFragment
 import com.example.work.view.fragments.HomeFragment

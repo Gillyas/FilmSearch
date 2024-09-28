@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.airbnb.lottie.LottieAnimationView
 import com.example.work.databinding.FragmentHomeBinding
-import com.example.work.domain.Film
+import com.example.work.data.e.Enity.Film
 import com.example.work.utils.AnimationHelper
 import com.example.work.view.rv_adapters.FilmListRecyclerAdapter
 import com.example.work.view.rv_adapters.TopSpacingItemDecoration

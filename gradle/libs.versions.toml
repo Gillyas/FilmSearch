@@ -1,4 +1,5 @@
 [versions]
+activityKtx = "1.9.2"
 agp = "8.5.2"
 converterGson = "2.11.0"
 dagger = "2.52"
@@ -15,23 +16,29 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 appcompat = "1.7.0"
 loggingInterceptor = "4.12.0"
-lottie = "6.4.1"
+lottie = "6.5.2"
 material = "1.12.0"
-activity = "1.9.1"
+activity = "1.9.2"
 constraintlayout = "2.1.4"
-lifecycleRuntimeKtx = "2.8.4"
-activityCompose = "1.9.1"
-composeBom = "2024.08.00"
-navigationFragmentKtx = "2.7.7"
-navigationUiKtx = "2.7.7"
+lifecycleRuntimeKtx = "2.8.6"
+activityCompose = "1.9.2"
+composeBom = "2024.09.02"
+navigationFragmentKtx = "2.8.1"
+navigationUiKtx = "2.8.1"
 pagingRuntimeKtx = "3.3.2"
 comGoogleDevtoolsKspGradlePlugin = "2.0.20-1.0.24"
 comAndroidLegacyKaptGradlePlugin = "8.7.0-alpha07"
 swiperefreshlayout = "1.1.0"
+roomCommon = "2.6.1"
+roomCompiler = "2.6.1"
+roomCommonJvm = "2.7.0-alpha08"
 
 [libraries]
+androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
+androidx-room-room-runtime = { module = "androidx.room:room-runtime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
@@ -71,8 +78,11 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converte
 com-google-devtools-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "comGoogleDevtoolsKspGradlePlugin" }
 com-android-legacy-kapt-gradle-plugin = { group = "com.android.legacy-kapt", name = "com.android.legacy-kapt.gradle.plugin", version.ref = "comAndroidLegacyKaptGradlePlugin" }
 androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+room-runtime = { module = "androidx.room:room-runtime" }
+androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-

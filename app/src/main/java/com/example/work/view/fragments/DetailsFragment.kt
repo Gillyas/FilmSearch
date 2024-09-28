@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.work.R
 import com.example.work.data.e.ApiConstants
 import com.example.work.databinding.FragmentDetailsBinding
-import com.example.work.domain.Film
+import com.example.work.data.e.Enity.Film
 
 
 @Suppress("DEPRECATION")
