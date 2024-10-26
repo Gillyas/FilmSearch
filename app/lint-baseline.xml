@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="5" by="lint Koala | 2024.1.1 Patch 1">
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `com.airbnb.lottie.LottieAnimationView`, was not found in the project or the libraries">
+        <location
+            file="src/main/res/layout/fragment_home.xml"
+            line="42"/>
+    </issue>
+
+    <issue
+        id="MissingClass"
+        message="Class referenced in the layout file, `com.airbnb.lottie.LottieAnimationView`, was not found in the project or the libraries">
+        <location
+            file="src/main/res/layout/lottie_anim.xml"
+            line="9"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details.">
+        <location
+            file="build.gradle"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details.">
+        <location
+            file="build.gradle.kts"
+            line="16"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v23`) is unnecessary; `minSdkVersion` is 24. Merge all the resources in this folder into `values`.">
+        <location
+            file="src/main/res/values-v23"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (904 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.">
+        <location
+            file="src/main/res/drawable/baseline_settings_24.xml"
+            line="3"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (871 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector.">
+        <location
+            file="src/main/res/drawable/round_settings.xml"
+            line="4"/>
+    </issue>
+
+    <issue
+        id="KaptUsageInsteadOfKsp"
+        message="This library supports using KSP instead of kapt, which greatly improves performance. Learn more: https://developer.android.com/studio/build/migrate-to-ksp">
+        <location
+            file="build.gradle.kts"
+            line="74"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.raw.anim2` appears to be unused">
+        <location
+            file="src/main/res/raw/anim2.json"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.background` appears to be unused">
+        <location
+            file="src/main/res/drawable/background.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.anim.card_animation` appears to be unused">
+        <location
+            file="src/main/res/anim/card_animation.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.colorPrimary` appears to be unused">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="3"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.corner_background` appears to be unused">
+        <location
+            file="src/main/res/drawable/corner_background.xml"
+            line="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.fab_margin` appears to be unused">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.layout.fragment_second` appears to be unused">
+        <location
+            file="src/main/res/layout/fragment_second.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_launcher_background` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_launcher_background.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_round_settings_24` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_round_settings_24.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.img` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/img.webp"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.anim.layout_animation` appears to be unused">
+        <location
+            file="src/main/res/anim/layout_animation.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.navigation.nav_graph` appears to be unused">
+        <location
+            file="src/main/res/navigation/nav_graph.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.navigation.nav_graph2` appears to be unused">
+        <location
+            file="src/main/res/navigation/nav_graph2.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.animator.press_botton` appears to be unused">
+        <location
+            file="src/main/res/animator/press_botton.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.round_menu` appears to be unused">
+        <location
+            file="src/main/res/drawable/round_menu.xml"
+            line="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.round_settings` appears to be unused">
+        <location
+            file="src/main/res/drawable/round_settings.xml"
+            line="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.disclaimer` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="3"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.btn_menu` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="4"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.btn_fav` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.btn_watch_later` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="6"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.btn_selections` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="7"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.btn_setting` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="8"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.page_title` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="9"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.menu_settings_title` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.title_activity_details` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="14"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.title_activity_main2` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="15"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.menu_watch_later_title_text` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="17"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.menu_selections_title_text` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="18"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.first_fragment_label` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="21"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.second_fragment_label` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="22"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.previous` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="24"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hello_blank_fragment` appears to be unused">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="69"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.style.AppTheme` appears to be unused">
+        <location
+            file="src/main/res/values/styles.xml"
+            line="3"/>
+    </issue>
+
+    <issue
+        id="UselessParent"
+        message="This `RadioGroup` layout or its `FrameLayout` parent is possibly unnecessary; transfer the `background` attribute to the other view">
+        <location
+            file="src/main/res/layout/fragment_settings.xml"
+            line="10"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"/>
+    </issue>
+
+    <issue
+        id="IconDipSize"
+        message="The image `img.webp` varies significantly in its density-independent (dip) size across the various density versions: mipmap-hdpi/img.webp: 341x341 dp (512x512 px), mipmap-mdpi/img.webp: 512x512 dp (512x512 px), mipmap-xhdpi/img.webp: 256x256 dp (512x512 px)">
+        <location
+            file="src/main/res/mipmap-xhdpi/img.webp"/>
+        <location
+            file="src/main/res/mipmap-hdpi/img.webp"/>
+        <location
+            file="src/main/res/mipmap-mdpi/img.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicatesConfig"
+        message="The `img.webp` icon has identical contents in the following configuration folders: mipmap-hdpi, mipmap-mdpi, mipmap-xhdpi">
+        <location
+            file="src/main/res/mipmap-xhdpi/img.webp"/>
+        <location
+            file="src/main/res/mipmap-mdpi/img.webp"/>
+        <location
+            file="src/main/res/mipmap-hdpi/img.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.webp, ic_launcher_round.webp">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_round.webp"/>
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.webp, ic_launcher_round.webp">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_round.webp"/>
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.webp, ic_launcher_round.webp">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_round.webp"/>
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.webp, ic_launcher_round.webp">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_round.webp"/>
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.webp, ic_launcher_round.webp">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"/>
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher.webp"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        message="Use version catalog instead">
+        <location
+            file="build.gradle.kts"
+            line="72"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        message="Use the existing version catalog reference (`libs.dagger.compiler.v2511`) instead">
+        <location
+            file="build.gradle.kts"
+            line="78"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src/main/res/layout/film_item.xml"
+            line="28"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image">
+        <location
+            file="src/main/res/layout/fragment_details.xml"
+            line="46"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Скоро в обновлениях&quot;, should use `@string` resource">
+        <location
+            file="src/main/res/layout/fragment_watch_later.xml"
+            line="26"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales">
+        <location
+            file="src/main/res/layout/film_item.xml"
+            line="19"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Use &quot;`start`&quot; instead of &quot;`left`&quot; to ensure correct behavior in right-to-left locales">
+        <location
+            file="src/main/res/layout/film_item.xml"
+            line="19"/>
+    </issue>
+
+</issues>
