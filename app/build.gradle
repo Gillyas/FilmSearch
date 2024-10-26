@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("kotlin-parcelize")
     id("com.google.devtools.ksp") version "2.0.20-1.0.24"
+
 }
 
 android {
@@ -60,23 +61,32 @@ android {
 }
 
 dependencies {
-    implementation (libs.androidx.room.room.runtime)
-    implementation(libs.androidx.room.common.jvm)
-    ksp (libs.androidx.room.compiler)
-
+    def room_version = "2.6.1"
+    //Room
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.rxjava3)
+    ksp ("androidx.room:room-compiler:$room_version")
     implementation(libs.androidx.swiperefreshlayout)
+
+    //Coroutines
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
+
+    //RxJava
+    implementation (libs.rxandroid)
+    implementation (libs.rxjava)
 
 
     // lottie
-    implementation (libs.lottie)
+    implementation(libs.lottie)
 
     implementation(libs.dagger.compiler)
     ksp(libs.dagger.compiler)
 
     //Retrofit
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
-    implementation (libs.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 
     //Glide
     implementation(libs.glide)
