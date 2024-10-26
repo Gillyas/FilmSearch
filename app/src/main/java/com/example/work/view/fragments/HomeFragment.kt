@@ -5,24 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.airbnb.lottie.LottieAnimationView
-import com.example.work.databinding.FragmentHomeBinding
 import com.example.work.data.e.Enity.Film
+import com.example.work.databinding.FragmentHomeBinding
 import com.example.work.utils.AnimationHelper
+import com.example.work.utils.AutoDisposable
+import com.example.work.utils.addTo
+import com.example.work.view.MainActivity
 import com.example.work.view.rv_adapters.FilmListRecyclerAdapter
 import com.example.work.view.rv_adapters.TopSpacingItemDecoration
-import com.example.work.view.MainActivity
 import com.example.work.viewmodel.HomeFragmentViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.Locale
 
 class HomeFragment : Fragment() {
@@ -31,7 +27,7 @@ class HomeFragment : Fragment() {
     }
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var scope: CoroutineScope
+    private val autoDisposable = AutoDisposable()
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -45,6 +41,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        autoDisposable.bindTo(lifecycle)
         retainInstance = true
     }
 
@@ -71,34 +68,26 @@ class HomeFragment : Fragment() {
         initRecyckler()
         //Кладем нашу БД в RV
 
-        scope = CoroutineScope(Dispatchers.IO).also { scope ->
-            scope.launch {
-                viewModel.filmsListData.collect {
-                    withContext(Dispatchers.Main) {
-                        filmsAdapter.addItems(it)
-                        filmsDataBase = it
-                    }
-                }
+        viewModel.filmsListData
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { list ->
+                filmsAdapter.addItems(list)
+                filmsDataBase = list
             }
-            scope.launch {
-                for (element in viewModel.showProgressBar) {
-                    launch(Dispatchers.Main) {
-                        binding.progressBar.isVisible = element
-                    }
-                }
+            .addTo(autoDisposable)
+        viewModel.filmsListData
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { list ->
+                filmsAdapter.addItems(list)
+                filmsDataBase = list
             }
-        }
+            .addTo(autoDisposable)
     }
-
-
-    override fun onStop() {
-        super.onStop()
-        scope.cancel()
-    }
-
     private fun initPullToRefresh() {
         //Вешаем слушатель, чтобы вызвался pull to refresh
-        binding.pullToRefresh.setOnRefreshListener {
+        binding.pullToRefresh.setOnRefreshListener{
             //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
             filmsAdapter.items.clear()
             //Делаем новый запрос фильмов на сервер
@@ -131,8 +120,8 @@ class HomeFragment : Fragment() {
                 //Фильтруем список на поискк подходящих сочетаний
                 val result = filmsDataBase.filter {
                     //Чтобы все работало правильно, нужно и запроси и имя фильма приводить к нижнему регистру
-                    it.title.toLowerCase(Locale.getDefault())
-                        .contains(newText.toLowerCase(Locale.getDefault()))
+                    it.title.lowercase(Locale.getDefault())
+                        .contains(newText.lowercase(Locale.getDefault()))
                 }
                 //Добавляем в адаптер
                 filmsAdapter.addItems(result)
