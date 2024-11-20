@@ -1,12 +1,18 @@
-package com.example.work
+package com.example.work.view
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.airbnb.lottie.LottieAnimationView
+import com.example.work.R
 import com.example.work.databinding.ActivityMainBinding
+import com.example.work.domain.Film
+import com.example.work.view.fragments.DetailsFragment
+import com.example.work.view.fragments.FavoritesFragment
+import com.example.work.view.fragments.HomeFragment
+import com.example.work.view.fragments.SelectionsFragment
+import com.example.work.view.fragments.WatchLaterFragment
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -17,18 +23,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val lottieAnimationView: LottieAnimationView = binding.lottieAnim
-        lottieAnimationView.playAnimation()
         initNavigation()
         //Зупускаем фрагмент при старте
-        supportFragmentManager
-            .beginTransaction()
-            .add(R.id.fragment_placeholder, HomeFragment())
-            .addToBackStack(null)
-            .commit()
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragment_placeholder, HomeFragment())
+                .addToBackStack(null)
+                .commit()
 
     }
 
+    @Deprecated("This method has been deprecated in favor of using the\n      {@link OnBackPressedDispatcher} via {@link #getOnBackPressedDispatcher()}.\n      The OnBackPressedDispatcher controls how back button events are dispatched\n      to one or more {@link OnBackPressedCallback} objects.")
     override fun onBackPressed() {
         if (supportFragmentManager.backStackEntryCount == 1) {
             if (backPressed + TIME_INTERVAL > System.currentTimeMillis()) {

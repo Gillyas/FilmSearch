@@ -1,4 +1,4 @@
-package com.example.work
+package com.example.work.utils
 
 import android.app.Activity
 import android.view.View

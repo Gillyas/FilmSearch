@@ -1,10 +1,13 @@
-package com.example.work
+package com.example.work.view.rv_adapters
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.work.view.rv_viewholders.FilmViewHolder
+import com.example.work.R
+import com.example.work.domain.Film
 
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity
