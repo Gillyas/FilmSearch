@@ -14,8 +14,8 @@ import kotlinx.parcelize.Parcelize
 data class Film(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "poster_path") val poster: String,//У нас будет приходить ссылка на картинку, так что теперь это
+    @ColumnInfo(name = "poster_path") val poster: String?, //У нас будет приходить ссылка на картинку, так что теперь это String
     @ColumnInfo(name = "overview") val description: String,
-    @ColumnInfo(name = "vote_average") val rating: Double = 0.0, //Приходит нецелое число с API
+    @ColumnInfo(name = "vote_average") var rating: Double = 0.0, //Приходит не целое число с API
     var isInFavorites: Boolean = false
-    ) : Parcelable
+) : Parcelable

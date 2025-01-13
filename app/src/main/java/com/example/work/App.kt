@@ -16,6 +16,7 @@ import com.example.work.data.e.di.modules.RemoteModule
 class App : Application() {
     lateinit var dagger: AppComponent
     override fun onCreate() {
+
         super.onCreate()
         instance = this
         //Создаем компонент

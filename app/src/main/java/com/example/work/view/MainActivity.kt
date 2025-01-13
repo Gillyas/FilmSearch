@@ -1,6 +1,5 @@
 package com.example.work.view
 
-
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -21,6 +20,7 @@ import com.example.work.view.fragments.WatchLaterFragment
 class MainActivity : AppCompatActivity(){
     private var backPressed = 0L
     private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

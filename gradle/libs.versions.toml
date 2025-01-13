@@ -1,6 +1,6 @@
 [versions]
 activityKtx = "1.9.3"
-agp = "8.7.1"
+agp = "8.7.3"
 converterGson = "2.11.0"
 dagger = "2.52"
 daggerCompiler = "2.52"
@@ -28,6 +28,8 @@ roomRuntime = "2.6.1"
 roomRxjava3 = "2.6.1"
 rxandroid = "3.0.2"
 rxjava = "3.1.9"
+rxjava3RetrofitAdapter = "3.0.0"
+rxkotlin = "3.0.0"
 swiperefreshlayout = "1.1.0"
 roomCompiler = "2.6.1"
 roomCommonJvm = "2.7.0-alpha10"
@@ -43,7 +45,6 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-android = { module = "com.google.dagger:dagger-android", version.ref = "daggerCompiler" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
-dagger-compiler-v2511 = { module = "com.google.dagger:dagger-compiler", version.ref = "googleDaggerCompiler" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -74,6 +75,8 @@ androidx-room-compiler = { group = "androidx.room", name = "room-compiler", vers
 androidx-room-common-jvm = { group = "androidx.room", name = "room-common-jvm", version.ref = "roomCommonJvm" }
 rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxjava" }
 rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava3-retrofit-adapter = { module = "com.github.akarnokd:rxjava3-retrofit-adapter", version.ref = "rxjava3RetrofitAdapter" }
+rxkotlin = { module = "io.reactivex.rxjava3:rxkotlin", version.ref = "rxkotlin" }
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

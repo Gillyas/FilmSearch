@@ -31,6 +31,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 
+@Suppress("DEPRECATION")
 class DetailsFragment : Fragment() {
     private lateinit var film: Film
     private lateinit var binding: FragmentDetailsBinding

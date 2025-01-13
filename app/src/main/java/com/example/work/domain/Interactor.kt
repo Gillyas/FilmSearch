@@ -47,7 +47,14 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
                 progressBarState.onNext(false)
             }
         })
+
+
     }
+    fun getSearchResultFromApi(search: String): Observable<List<Film>> = retrofitService.getFilmFromSearch(API.KEY, "ru-RU", search, 1)
+        .map{
+            Converter.convertApiListToDtoList(it.tmdbFilms)
+        }
+
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {
         preferences.saveDefaultCategory(category)
@@ -56,4 +63,5 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     fun getDefaultCategoryFromPreferences() = preferences.getDefaultCategory()
 
     fun getFilmsFromDB(): Observable<List<Film>> = repo.getAllFromDB()
+
 }
