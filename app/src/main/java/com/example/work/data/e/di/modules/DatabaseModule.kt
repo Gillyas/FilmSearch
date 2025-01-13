@@ -16,7 +16,7 @@ class DatabaseModule {
     fun provideFilmDao(context: Context) = Room.databaseBuilder(
         context,
         AppDatabase::class.java,
-        "film_db"
+        "film_db_ "
     ).build().filmDao()
 
     @Provides

@@ -76,7 +76,8 @@ dependencies {
     implementation (libs.rxandroid)
     implementation (libs.rxjava)
 
-
+    implementation libs.rxkotlin
+    implementation libs.rxjava3.retrofit.adapter
     // lottie
     implementation(libs.lottie)
 

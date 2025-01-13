@@ -1,5 +1,7 @@
 package com.example.work.viewmodel
 
+import android.icu.text.StringSearch
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,4 +34,6 @@ class HomeFragmentViewModel : ViewModel() {
     fun getFilms() {
         interactor.getFilmsFromApi(1)
     }
+
+    fun getSearchResult(search: String) = interactor.getSearchResultFromApi(search)
 }
